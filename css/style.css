@@ -10,7 +10,7 @@ body{
     color: #eee;
     margin: 0;
     font-size: 12px;
-    box-sizing: border-box;
+    
 }
 a{
     text-decoration: none;
@@ -40,7 +40,7 @@ header a
     object-position: center;
 }
 
-.thumbnail .item img
+.thumbnail .items img
 {
     width: 100%;
     height: 100%;
@@ -126,21 +126,21 @@ header a
     display: flex;
     gap: 20px;
 }
-.thumbnail .item
+.thumbnail .items
 {
     width: 150px;
     height: 220px;
     flex-shrink: 0;
     position: relative;
 }
-.thumbnail .item .content
+.thumbnail .items .content
 {
     position: absolute;
     bottom: 10px;
     left: 10px;
     right: 10px;
 }
-.thumbnail .item .content .title
+.thumbnail .items .content .title
 {
     font-weight: bold;
 }
@@ -148,6 +148,52 @@ header a
 {
     position: absolute;
     top: 80%;
-    right: 52%;
+    right: 52%; 
     width: 300px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
+.arrows button
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+}
+.arrows button:hover
+{
+    background-color: #eee;
+    color: #555;
+}
+
+.carousel .list .above .item:nth-child(1)
+{
+    z-index: 1;
+}
+.carousel .list .above .item:nth-child(1) .author,
+.carousel .list .above .item:nth-child(1) .title,
+.carousel .list .above .item:nth-child(1) .topic,
+.carousel .list .above .item:nth-child(1) .des,
+.carousel .list .above .item:nth-child(1) .buttons
+{
+   transform: translateY(50px);
+   filter: blur(20px);
+   opacity: 0;
+   animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent
+{
+   to
+   {
+   opacity: 1;
+   filter: blur(0)
+   }
+}
+
