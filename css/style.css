@@ -130,18 +130,33 @@ header a
 }
 .thumbnail .items
 {
+    border-radius: 20px;
     width: 150px;
     height: 220px;
     flex-shrink: 0;
     position: relative;
-   
+    cursor: pointer;
+    transition: 0.5s;
 }
+.thumbnail .items:hover
+{
+    transform: skew(-2deg, -4deg) scale(1.1);
+    box-shadow: 4px 0 2px 2px rgb(50, 0, 0, 0.3);
+}
+.thumbnail .items:hover .content
+{
+    color: pink;
+    transform: translate(20px) scale(1.1);
+    
+}
+
 .thumbnail .items .content
 {
     position: absolute;
     bottom: 10px;
     left: 10px;
     right: 10px;
+    transition: 0.5s;
 }
 .thumbnail .items .content .title
 {
@@ -175,7 +190,7 @@ header a
 {
     background-color: #eee;
     color: #555;
-    border: blur(5px);
+    cursor: pointer;
 }
 
 .carousel .list .item:nth-child(1)
@@ -313,7 +328,6 @@ header a
 .carousel.prev .list .item:nth-child(2) .des,
 .carousel.prev .list .item:nth-child(2) .buttons
 {
-    background-color: red;
     animation: contentOut 1.5s linear 1 forwards;
 }
 @keyframes contentOut
@@ -321,7 +335,75 @@ header a
     to
     {
         transform: translateY(-150px);
-        /* filter: blur(20px); */
-        /* opacity: 0; */
+        filter: blur(20px); 
+        opacity: 0;
+    }
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button
+{
+   pointer-events: none;
+
+}
+/* <<<<<<<,time>>>>>>> */
+.time
+{
+    width: 0;
+    height: 5px;
+    background-color: #f1683a;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+.carousel.next .time,
+.carousel.prev .time
+{
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+@keyframes timeRunning
+{
+    to
+    {
+        width: 0;
+    }
+}
+
+@media screen and (max-width:866px)
+{
+    .carousel .list .item .content
+    {
+        padding-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 519px)
+{
+
+    .carousel .list .item .content
+    {
+        transform: translateX(-50%);
+        margin-top: -50px;
+    }
+}
+@media screen and (max-width: 356px)
+{
+    .carousel .thumbnail
+    {
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 678px)
+{
+    .carousel .list .item .content
+    {
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title
+    {
+        font-size: 30px;
     }
 }
